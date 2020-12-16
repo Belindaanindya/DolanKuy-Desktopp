@@ -1,0 +1,23 @@
+﻿<basic1:MyWindow 
+        x:Class="DolanKuyDesktopPalingbaru.Dashboard.Dashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DolanKuyDesktopPalingbaru"
+        xmlns:basic1="clr-namespace:Velacro.UIElements.Basic;assembly=Velacro"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="#FFE8E8E8">
+
+        <StackPanel HorizontalAlignment="Left" Height="362" VerticalAlignment="Top" Width="124" Margin="10,59,0,-0.333" Background="White">
+            <Button Content="Kategory Wisata" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Montserrat" FontSize="10" Click="kategori_click" RenderTransformOrigin="0.501,0.5" />
+            <Button Content="List Akomodasi" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Montserrat" FontSize="10" Margin="0,0,0.4,0" Click="akomodasi_click" />
+            <Button Content="List Wisata" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Montserrat" FontSize="10" Margin="0,0,0.4,0" Click="wisata_click"/>
+            <Button Content="Create Lokasi" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Montserrat" FontSize="10" Margin="0,0,0.4,0" Click="create_lokasi_click"/>
+        </StackPanel>
+        <Frame Name="mainFrame" NavigationUIVisibility="Hidden" Margin="134,0,0.333,-0.333"/>
+        <Label Content="DolanKuy" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="124" FontFamily="Montserrat" FontWeight="Bold" Foreground="#FFFF6329" FontSize="22" Height="44" />
+
+    </Grid>
+</basic1:MyWindow>

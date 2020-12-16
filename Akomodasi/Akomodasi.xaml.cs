@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Velacro.UIElements.Basic;
+using Velacro.UIElements.Button;
 
 namespace DolanKuyDesktopPalingbaru.Akomodasi
 {
@@ -21,9 +22,35 @@ namespace DolanKuyDesktopPalingbaru.Akomodasi
     /// </summary>
     public partial class Akomodasi : MyPage
     {
+        private BuilderButton buttonBuilder;
+        private IMyButton buttonGet;
+        private List<ModelListAkomodasi> listServices;
+
         public Akomodasi()
         {
             InitializeComponent();
+            setController(new ListAkomodasiController(this));
+            initUIBuilders();
+            getData();
+        }
+
+        private void initUIBuilders()
+        {
+            buttonBuilder = new BuilderButton();
+        }
+
+        public void getData()
+        {
+            getController().callMethod("getLocation");
+        }
+
+        public void setLocation(List<ModelListAkomodasi> locationList)
+        {
+            this.listServices = locationList;
+
+            this.Dispatcher.Invoke((Action)(() => {
+                serviceList.ItemsSource = locationList;
+            }));
         }
     }
 }

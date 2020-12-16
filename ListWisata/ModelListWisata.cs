@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DolanKuyDesktopPalingbaru.ListWisata
 {
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
-    public class ModelLocation
+    public class ModelListWisata
     {
         public int id { get; set; }
         public string name { get; set; }
@@ -32,7 +32,7 @@ namespace DolanKuyDesktopPalingbaru.ListWisata
 
     public class RootLocation
     {
-        public List<ModelLocation> locations { get; set; }
+        public List<ModelListWisata> locations { get; set; }
         //public List<Galery> galery { get; set; }
     }
 

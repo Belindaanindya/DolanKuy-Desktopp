@@ -65,12 +65,12 @@
                                 <GridView>
                                     <GridViewColumn DisplayMemberBinding="{Binding id}" Header="ID" Width="40"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding name}" Header="Nama Lokasi Akomodasi" Width="120"/>
-                                    <GridViewColumn DisplayMemberBinding="{Binding name}" Header="Alamat" Width="60"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding address}" Header="Alamat" Width="60"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding description}" Header="Deskripsi" Width="80"/>
                                     <GridViewColumn DisplayMemberBinding="{Binding contact}" Header="Contact" Width="60"/>
-                                    <GridViewColumn DisplayMemberBinding="{Binding contact}" Header="Latitude" Width="60"/>
-                                    <GridViewColumn DisplayMemberBinding="{Binding contact}" Header="Longitude" Width="60"/>
-                                    <GridViewColumn DisplayMemberBinding="{Binding name}" Header="Photo/Video" Width="80"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding latitude}" Header="Latitude" Width="60"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding longitude}" Header="Longitude" Width="60"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding image}" Header="Photo" Width="80"/>
                                     <GridViewColumn Header="Action" Width="200">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
@@ -89,4 +89,5 @@
             </TabControl>
         </Grid>
     </Grid>
+    
 </Page:MyPage>

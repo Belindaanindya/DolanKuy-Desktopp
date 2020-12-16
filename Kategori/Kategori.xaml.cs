@@ -30,7 +30,7 @@ namespace DolanKuyDesktopPalingbaru.Kategori
         public Kategori()
         {
             InitializeComponent();
-            this.KeepAlive = true;
+            //this.KeepAlive = true;
             setController(new CategoryController(this));
             initUIBuilders();
             initUIElements();

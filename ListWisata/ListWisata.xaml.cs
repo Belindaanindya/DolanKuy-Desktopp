@@ -24,7 +24,7 @@ namespace DolanKuyDesktopPalingbaru.ListWisata
     {
         private BuilderButton buttonBuilder;
         private IMyButton buttonGet;
-        private List<ModelLocation> listServices;
+        private List<ModelListWisata> listServices;
         private List<int> actualId = new List<int>();
 
         public ListWisata()
@@ -45,7 +45,7 @@ namespace DolanKuyDesktopPalingbaru.ListWisata
             getController().callMethod("getLocation");
         }
 
-        public void setLocation(List<ModelLocation> locationList)
+        public void setLocation(List<ModelListWisata> locationList)
         {
             this.listServices = locationList;
             /*actualId.Clear();
