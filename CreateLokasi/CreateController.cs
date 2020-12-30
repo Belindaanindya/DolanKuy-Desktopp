@@ -11,8 +11,10 @@ namespace DolanKuyDesktopPalingbaru.CreateLokasi
 {
     public class CreateController : MyController
     {
+        String token;
 
         public CreateController(IMyView _myView) : base(_myView) { }
+
 
         public async void create(
             string _name,
@@ -21,28 +23,40 @@ namespace DolanKuyDesktopPalingbaru.CreateLokasi
             string _contact,
             String _latitude,
             String _longitude,
-            String _image,
-            String _id
+            String _id,
+            string _token,
+            MyFile newImage
         )
         {
-            //MultiPartContent multiPartContent1 = new MultiPartContent(MyFile myFile);
-            var client = new ApiClient("http://127.0.0.1:8000/api/");
-            var request = new ApiRequestBuilder();
+            MyList<string> fileKey = new MyList<string>() {"image"};
+            MyList<MyFile> file = new MyList<MyFile>() {newImage};
+            this.token = _token;
 
-            var req = request
+            MultiPartContent multiPartContent1 = new MultiPartContent(file, fileKey);
+            var client = new ApiClient("http://127.0.0.1:8000/api/");
+
+            var req = new ApiRequestBuilder()
+                //.buildMultipartRequest(multiPartContent1)
                 .buildHttpRequest()
                 .addParameters("category_id", _id)
                 .addParameters("name", _name)
                 .addParameters("address", _address)
                 .addParameters("description", _description)
-                .addParameters("image", _image)
                 .addParameters("contact", _contact)
                 .addParameters("latitude", _latitude)
                 .addParameters("longitude", _longitude)
                 .setRequestMethod(HttpMethod.Post)
-                .setEndpoint("location/create");
+                .setEndpoint("locations/create");
+            client.setAuthorizationToken(_token);
+            var response = await client.sendRequest(req.getApiRequestBundle());
+
+            var req2 = new ApiRequestBuilder()
+                .buildMultipartRequest(multiPartContent1)
+                .setRequestMethod(HttpMethod.Post)
+                .setEndpoint("locations/update/"+ response.getJObject()["id"].ToString());
+            //client.setAuthorizationToken(_token);
             client.setOnSuccessRequest(setViewRegisterStatus);
-            var response = await client.sendRequest(request.getApiRequestBundle());
+            var response2 = await client.sendRequest(req2.getApiRequestBundle());
 
         }
 
@@ -54,7 +68,7 @@ namespace DolanKuyDesktopPalingbaru.CreateLokasi
             if (_response.getHttpResponseMessage().Content != null)
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
-                getView().callMethod("setRegisterStatus", status);
+                getView().callMethod("setRegisterStatus", this.token);
             }
 
         }

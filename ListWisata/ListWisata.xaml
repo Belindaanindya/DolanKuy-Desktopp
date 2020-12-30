@@ -25,39 +25,7 @@
 
         <Grid Margin="0,54,-0.333,4.333">
             <TabControl Height="380" Margin="0,-10,1,3">
-                <TabItem Header="Create List Wisata">
-                    <Grid Background="#FFFFFF" Margin="0,0,0,-14.667">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="200"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Label  Grid.Row="0" Grid.Column="0" Content="Nama Lokasi Akomodasi" Margin="1,4,471.2,4" FontFamily="Montserrat" Height="28"/>
-                        <TextBox Grid.Row="0" Grid.Column="0" Height="28" TextWrapping="Wrap"  Margin="164,4,10.4,4"/>
-                        <Label Grid.Row="1" Grid.Column="0" Content="Deskripsi" Margin="1,1,471.2,43.8" FontFamily="Montserrat" Height="72"/>
-                        <TextBox Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" Margin="164,9,10.4,51" Height="72"/>
-                        <Label Grid.Row="1" Grid.Column="0" Content="Alamat" Margin="1,92,471.2,9.6" FontFamily="Montserrat" Height="28"/>
-                        <TextBox Grid.Row="1" Grid.Column="0" TextWrapping="Wrap"  Margin="164,93,10.4,11" Height="28"/>
-                        <Label Grid.Row="2" Grid.Column="0" Content="Jam Buka" Margin="1,0,471.2,8" FontFamily="Montserrat" Height="28"/>
-                        <TextBox Grid.Row="2" Grid.Column="0" TextWrapping="Wrap"  Margin="164,2,10.4,10.8" Height="28"/>
-                        <Label  Grid.Row="3" Grid.Column="0" Content="Upload Photo/Video" Margin="1,0.2,471.2,132.6" FontFamily="Montserrat" Height="28"/>
-                        <TextBox Grid.Row="3" Grid.Column="0" TextWrapping="Wrap" Text="Choose Photo" Margin="164,0.2,10.4,132.6" Height="28"/>
-                        <Button Grid.Row="3" Grid.Column="0" Content="Kirim" Margin="164,92.2,10.4,45.6" Background="#FFFF6329" BorderBrush="#FFFF6329" FontFamily="Montserrat" Foreground="#FFFAF8F8"/>
-                        <TextBox HorizontalAlignment="Left" Height="28" Margin="164,43.2,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Latitude" VerticalAlignment="Top" Width="131"/>
-                        <TextBox HorizontalAlignment="Left" Height="28" Margin="500,43.2,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Longitude" VerticalAlignment="Top" Width="120"/>
-                        <Label Content="Latitude" HorizontalAlignment="Left" Margin="1,43.2,0,0" Grid.Row="3" VerticalAlignment="Top" Height="28"/>
-                        <Label Content="Longitude" HorizontalAlignment="Left" Margin="389,43.2,0,0" Grid.Row="3" VerticalAlignment="Top"/>
-                    </Grid>
-                </TabItem>
+                
                 <TabItem Header="Tabel List Wisata">
                     <Grid Background="#FFFFFF">
                         <ListView x:Name="serviceList" HorizontalAlignment="Stretch" Margin="0,0,-0.4,0" VerticalAlignment="Stretch">

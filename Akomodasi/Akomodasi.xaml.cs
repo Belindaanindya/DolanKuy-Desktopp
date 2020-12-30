@@ -25,9 +25,11 @@ namespace DolanKuyDesktopPalingbaru.Akomodasi
         private BuilderButton buttonBuilder;
         private IMyButton buttonGet;
         private List<ModelListAkomodasi> listServices;
+        String token;
 
-        public Akomodasi()
+        public Akomodasi(string token)
         {
+            this.token = token;
             InitializeComponent();
             setController(new ListAkomodasiController(this));
             initUIBuilders();

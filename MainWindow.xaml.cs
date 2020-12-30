@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DolanKuyDesktopPalingbaru.Login;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ using Velacro.UIElements.Basic;
 using Velacro.UIElements.Button;
 using Velacro.UIElements.TextBlock;
 using Velacro.UIElements.TextBox;
+using Velacro.UIElements.PasswordBox;
 
 namespace DolanKuyDesktopPalingbaru
 {
@@ -27,10 +29,11 @@ namespace DolanKuyDesktopPalingbaru
 
         private BuilderButton buttonBuilder;
         private BuilderTextBox txtBoxBuilder;
+        private BuilderPasswordBox passBoxBuilder;
         private BuilderTextBlock txtBlockBuilder;
         private IMyButton loginButton;
         private IMyTextBox emailTxtBox;
-        private IMyTextBox passwordTxtBox;
+        private IMyPasswordBox passwordTxtBox;
         private IMyTextBlock loginStatusTxtBlock;
         private MyWindow dashboard;
         //private MyPage dashboard = new Dashboard.Dashboard();
@@ -39,8 +42,7 @@ namespace DolanKuyDesktopPalingbaru
         {
             InitializeComponent();
             //this.KeepAlive = true;
-            //setController(new LoginController(this));
-            dashboard = new Dashboard.Dashboard();
+            setController(new LoginController(this));
             initUIBuilders();
             initUIElements();
         }
@@ -50,44 +52,38 @@ namespace DolanKuyDesktopPalingbaru
             buttonBuilder = new BuilderButton();
             txtBoxBuilder = new BuilderTextBox();
             txtBlockBuilder = new BuilderTextBlock();
+            passBoxBuilder = new BuilderPasswordBox();
         }
 
         private void initUIElements()
         {
             
-            /*loginButton = buttonBuilder
+            loginButton = buttonBuilder
                 .activate(this, "loginButton_btn")
                 .addOnClick(this, "onLoginButtonClick");
             emailTxtBox = txtBoxBuilder.activate(this, "email_txt");
-            passwordTxtBox = txtBoxBuilder.activate(this, "password_txt");
-            loginStatusTxtBlock = txtBlockBuilder.activate(this, "loginStatus");*/
+            passwordTxtBox = passBoxBuilder.activate(this, "password_txt");
+            loginStatusTxtBlock = txtBlockBuilder.activate(this, "loginStatus");
         }
 
         public void onLoginButtonClick()
         {
-            //getController().callMethod("login", email_txt.Text, password_txt.Text);
+            getController().callMethod("login", emailTxtBox.getText(), passwordTxtBox.getPassword());
+            
 
         }
 
 
         public void setLoginStatus(string _status)
         {
-            /*this.Dispatcher.Invoke(() =>
+            this.Dispatcher.Invoke(() =>
             {
-
-                loginFrame.Navigate(dashboard);
-                //System.Windows.Visibility visibility = loginButton_btn.Visibility;
-                // this.IsEnabled = false;
-                //this.KeepAlive = false;
+                dashboard = new Dashboard.Dashboard(_status);
                 loginButton.setText(_status);
-            });*/
+                dashboard.Show();
+            });
+            
         }
 
-        private void loginButton_btn_Click(object sender, RoutedEventArgs e)
-        {
-            //getController().callMethod("login", email_txt.Text);
-            dashboard.Show();
-            this.Close();
-        }
     }
 }

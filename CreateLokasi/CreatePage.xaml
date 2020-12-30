@@ -38,7 +38,9 @@
         <TextBox Name="address_tb" Grid.Row="2" Grid.Column="0" TextWrapping="Wrap"  Margin="164,2,10.4,10.8" Height="28"/>
 
         <Label  Grid.Row="3" Grid.Column="0" Content="Upload Photo" Margin="1,0.2,471.2,132.6" FontFamily="Montserrat" Height="28"/>
-        <TextBox Name="image_tb" Grid.Row="3" Grid.Column="0" TextWrapping="Wrap" Text="Choose Photo" Margin="164,0.2,10.4,132.6" Height="28"/>
+         
+        <Button Name="image_btn" Grid.Row="3" Grid.Column="0" Content="Choose Photo" Margin="164,0,325,132.667" Height="28" Click="onPhotoClick"/>
+        <Image Name="imageView" Grid.Row="3" Grid.Column="0"  Margin="342,0,147,132.667" Height="28" ></Image>
 
         <TextBox Name="latitude_tb" HorizontalAlignment="Left" Height="28" Margin="164,43.2,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="131"/>
         <Label Content="Latitude" HorizontalAlignment="Left" Margin="1,43.2,0,0" Grid.Row="3" VerticalAlignment="Top" Height="28"/>

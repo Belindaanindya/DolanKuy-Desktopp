@@ -39,7 +39,7 @@ namespace DolanKuyDesktopPalingbaru.Login
             if (_response.getHttpResponseMessage().Content != null)
             {
 
-                string status = _response.getHttpResponseMessage().ReasonPhrase;
+                string status = _response.getJObject()["token"].ToString();
                 getView().callMethod("setLoginStatus", status);
 
 

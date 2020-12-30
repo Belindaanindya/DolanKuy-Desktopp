@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Velacro.Basic;
+using Velacro.LocalFile;
 using Velacro.UIElements.Basic;
 using Velacro.UIElements.Button;
 using Velacro.UIElements.TextBlock;
@@ -24,8 +26,10 @@ namespace DolanKuyDesktopPalingbaru.CreateLokasi
     /// </summary>
     public partial class CreatePage : MyPage
     {
-        public CreatePage()
+        String token;
+        public CreatePage(string token)
         {
+            this.token = token;
             InitializeComponent();
             this.KeepAlive = true;
             setController(new CreateController(this));
@@ -52,15 +56,23 @@ namespace DolanKuyDesktopPalingbaru.CreateLokasi
         private IMyTextBox contact_tb1;
         private IMyTextBox longitude_tb1;
         private IMyTextBox latitude_tb1;
-        private IMyTextBox image_tb1;
+        //private IMyTextBox image_tb1;
         private IMyTextBox category_tb1;
+        private Image image;
+        private MyList<MyFile> newImage;
 
         private IMyTextBlock createStatusTxtBlock;
 
+
+
         private void initUIElements()
         {
+            newImage = new MyList<MyFile>();
+            newImage.Add(null);
             createButton = buttonBuilder.activate(this, "create_btn")
                 .addOnClick(this, "onCreateButtonClick");
+
+            image = this.FindName("imageView") as Image;
 
             name_tb1 = txtBoxBuilder.activate(this, "name_tb");
             description_tb1 = txtBoxBuilder.activate(this, "description_tb");
@@ -68,13 +80,14 @@ namespace DolanKuyDesktopPalingbaru.CreateLokasi
             contact_tb1 = txtBoxBuilder.activate(this, "contact_tb");
             latitude_tb1 = txtBoxBuilder.activate(this, "latitude_tb");
             longitude_tb1 = txtBoxBuilder.activate(this, "longitude_tb");
-            image_tb1 = txtBoxBuilder.activate(this, "image_tb");
+            //image_tb1 = txtBoxBuilder.activate(this, "image_tb");
             category_tb1 = txtBoxBuilder.activate(this, "category_tb");
             //createStatusTxtBlock = txtBlockBuilder.activate(this, "registerStatus");
         }
 
         public void onCreateButtonClick()
         {
+            
             getController().callMethod("create",
 
                 name_tb1.getText(),
@@ -83,8 +96,9 @@ namespace DolanKuyDesktopPalingbaru.CreateLokasi
                 contact_tb1.getText().ToString(),
                 latitude_tb1.getText(),
                 longitude_tb1.getText(),
-                image_tb1.getText(),
-                category_tb1.getText()
+                category_tb1.getText(),
+                this.token,
+                newImage[0]
             );
         }
 
@@ -94,6 +108,31 @@ namespace DolanKuyDesktopPalingbaru.CreateLokasi
                 createButton.setText(_status);
             });
 
+        }
+
+        private void onPhotoClick(object sender, RoutedEventArgs e)
+        {
+            MyList<MyFile> chosenImage = new OpenFile().openFile(false);
+
+            if (chosenImage[0] != null)
+            {
+                string size = chosenImage[0].fileSize;
+                if ((chosenImage[0].extension.ToUpper().Equals(".PNG") ||
+                     chosenImage[0].extension.ToUpper().Equals(".JPEG") ||
+                     chosenImage[0].extension.ToUpper().Equals(".JPG")))
+                {
+                    newImage.Clear();
+                    newImage.Add(chosenImage[0]);
+
+                    Uri newImageUri = new Uri(newImage[0].fullPath);
+
+                    image.Source = new BitmapImage(newImageUri);
+                }
+                else
+                {
+                    //showErrorMessage("Image must be in .jpg, .jpeg, or .png and less than 1 MB!");
+                }
+            }
         }
     }
 }

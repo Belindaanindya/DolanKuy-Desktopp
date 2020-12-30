@@ -12,17 +12,17 @@
     <Grid Background="#FFE8E8E8">
 
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition  Width="Auto"/>
-            </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="Auto"/>
+        </Grid.ColumnDefinitions>
 
-            <Button  Grid.Row="0" Grid.Column="0" Content="Log Out" Margin="557,0,-35.4,-0.4" Height="42" BorderBrush="{x:Null}" FontFamily="Montserrat" Background="#FFFD4715" HorizontalAlignment="Left" Width="84" Foreground="White"/>
-            <TextBox  Grid.Row="0" Grid.Column="0" Height="23" TextWrapping="Wrap" Text=" Search For Anything" Margin="10,9,0,9.6" HorizontalAlignment="Left" Width="536"/>
+        <Button  Grid.Row="0" Grid.Column="0" Content="Log Out" Margin="557,0,-35.4,-0.4" Height="42" BorderBrush="{x:Null}" FontFamily="Montserrat" Background="#FFFD4715" HorizontalAlignment="Left" Width="84" Foreground="White"/>
+        <TextBox  Grid.Row="0" Grid.Column="0" Height="23" TextWrapping="Wrap" Text=" Search For Anything" Margin="10,9,0,9.6" HorizontalAlignment="Left" Width="536"/>
 
-        
+
 
 
 

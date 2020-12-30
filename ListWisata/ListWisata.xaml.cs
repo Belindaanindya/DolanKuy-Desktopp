@@ -26,9 +26,11 @@ namespace DolanKuyDesktopPalingbaru.ListWisata
         private IMyButton buttonGet;
         private List<ModelListWisata> listServices;
         private List<int> actualId = new List<int>();
+        String token;
 
-        public ListWisata()
+        public ListWisata(string token)
         {
+            this.token = token;
             InitializeComponent();
             setController(new ListWisataController(this));
             initUIBuilders();

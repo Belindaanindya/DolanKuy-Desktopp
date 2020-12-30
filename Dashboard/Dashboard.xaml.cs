@@ -26,37 +26,38 @@ namespace DolanKuyDesktopPalingbaru.Dashboard
         private MyPage akomodasiPage;
         private MyPage kategoriPage;
         private MyPage createPage;
+        private String token;
 
-        public Dashboard()
+        public Dashboard(string token)
         {
+            this.token = token;
             //listWisataPage = new ListWisata.ListWisata();
             //akomodasiPage = new Akomodasi.Akomodasi();
             //kategoriPage = new Kategori.Kategori();
-            createPage = new CreateLokasi.CreatePage();
             InitializeComponent();
         }
 
         private void wisata_click(object sender, RoutedEventArgs e)
         {
-            listWisataPage = new ListWisata.ListWisata();
+            listWisataPage = new ListWisata.ListWisata(this.token);
             mainFrame.Navigate(listWisataPage);
         }
 
         private void akomodasi_click(object sender, RoutedEventArgs e)
         {
-            akomodasiPage = new Akomodasi.Akomodasi();
+            akomodasiPage = new Akomodasi.Akomodasi(this.token);
             mainFrame.Navigate(akomodasiPage);
         }
 
         private void kategori_click(object sender, RoutedEventArgs e)
         {
-            kategoriPage = new Kategori.Kategori();
+            kategoriPage = new Kategori.Kategori(this.token);
             mainFrame.Navigate(kategoriPage);
         }
 
         private void create_lokasi_click(object sender, RoutedEventArgs e)
         {
-            
+            createPage = new CreateLokasi.CreatePage(this.token);
             mainFrame.Navigate(createPage);
         }
     }

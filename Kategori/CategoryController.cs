@@ -11,6 +11,7 @@ namespace DolanKuyDesktopPalingbaru.Kategori
 {
     public class CategoryController : MyController
     {
+        String token;
         public CategoryController(IMyView _myView) : base(_myView)
         {
 
@@ -37,17 +38,18 @@ namespace DolanKuyDesktopPalingbaru.Kategori
             }
         }
 
-        public async void postCategory(string _name)
+        public async void postCategory(string _name, string _token)
         {
             var client = new ApiClient("http://127.0.0.1:8000/");
             var request = new ApiRequestBuilder();
-
+            this.token = _token;
             //string token = "";
             var req = request
                 .buildHttpRequest()
                 .addParameters("name", _name)
                 .setEndpoint("api/category/create")
                 .setRequestMethod(HttpMethod.Post);
+            client.setAuthorizationToken(_token);
             client.setOnSuccessRequest(setViewCategoryStatus);
             var response = await client.sendRequest(request.getApiRequestBundle());
 
@@ -58,7 +60,7 @@ namespace DolanKuyDesktopPalingbaru.Kategori
             if (_response.getHttpResponseMessage().Content != null)
             {
                 string status = _response.getHttpResponseMessage().ReasonPhrase;
-                getView().callMethod("setCategoryStatus", status);
+                getView().callMethod("setCategoryStatus", this.token);
             }
         }
     }
