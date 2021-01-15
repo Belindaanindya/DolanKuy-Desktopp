@@ -3,50 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Background="{DynamicResource MaterialDesignPaper}"
-        TextElement.FontWeight="Medium"
-        TextElement.FontSize="14"
-        FontFamily="{materialDesign:MaterialDesignFont}"
         xmlns:basic1="clr-namespace:Velacro.UIElements.Basic;assembly=Velacro"
         xmlns:local="clr-namespace:DolanKuyDesktopPalingbaru"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Background="White">
+    <Grid>
+        
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="60*"/>
-            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="20*"/>
-        </Grid.RowDefinitions>
-        <Viewbox Grid.Column="1" Grid.Row="1">
-            <Label Content="Login for Admin" FontFamily="Montserrat" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="SemiBold" Foreground="#FFFF6329"/>
-        </Viewbox>
-        <Viewbox Grid.Column="1" Grid.Row="3">
-            <TextBox Name="email_txt" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="15" materialDesign:HintAssist.Hint="email" Width="295" />
-        </Viewbox>
-        <Viewbox Grid.Column="1" Grid.Row="5">
-            <PasswordBox Name="password_txt" Style="{DynamicResource MaterialDesignOutlinedPasswordFieldPasswordBox}" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="15" materialDesign:HintAssist.Hint="password" Width="295"/>
-        </Viewbox>
-        <Viewbox Grid.Column="1" Grid.Row="8">
-            <Button Name="loginButton_btn" Style="{StaticResource MaterialDesignRaisedButton}" FontFamily="Montserrat" Background="#FFFF6329" Foreground="White" Width="230" >LOGIN</Button>
-        </Viewbox>
-        <Viewbox Grid.Column="1" Grid.Row="6">
-            <Label Content="forgot password?" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" Foreground="#FFFF6329" Width="351"/>
-        </Viewbox>
-        <Viewbox Grid.Column="0" Grid.Row="1" Grid.RowSpan="8">
-            <Image HorizontalAlignment="Center" Height="1079" VerticalAlignment="Center" Width="1424" Source="Assets/logo_dolankuy.png"/>
-        </Viewbox>
+        
+        <Button Name="loginButton_btn"  Grid.Column="0" VerticalAlignment="Bottom" Content="Login" Width="238" Margin="181,0,181,77"    />
+        <TextBox Name="email_txt"  Grid.Column="0" Grid.Row ="0" VerticalAlignment="Center" Height="23" TextWrapping="Wrap" Text="Email"  Width="238" />
+        <PasswordBox Name="password_txt"  Grid.Column="0"  Grid.Row ="0" VerticalAlignment="Center" Height="22"   Width="238" Margin="181,172,181,116"/>
     </Grid>
 </basic1:MyWindow>

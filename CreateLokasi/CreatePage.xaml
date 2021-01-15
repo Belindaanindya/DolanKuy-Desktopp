@@ -5,95 +5,63 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-      Background="#F2F2F2"
-      FontFamily="{materialDesign:MaterialDesignFont}"
       xmlns:local="clr-namespace:DolanKuyDesktopPalingbaru.CreateLokasi"
       mc:Ignorable="d" 
-      Title="CreatePage" Width="837.5" Height="490.5">
+      d:DesignHeight="450"
+      Title="CreatePage" Width="650.794">
 
-    <Grid Background="White" Width="800" Height="450">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="20*"/>
-            <ColumnDefinition Width="30*"/>
-        </Grid.ColumnDefinitions>
+    <Grid Background="#FFFFFF" Margin="4,0,-4,-15">
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="45*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="35*"/>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Viewbox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left">
-            <Label Content="Category ID" FontFamily="Montserrat" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Regular" FontSize="6" />
-        </Viewbox>
-        <Viewbox Grid.Column="3" Grid.Row="1" Margin="2">
-            <TextBox Name="category_tb" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" VerticalAlignment="Center" FontFamily="Montserrat" FontSize="15" Width="340" />
-        </Viewbox>
-        <Viewbox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left">
-            <Label Content="Name" FontFamily="Montserrat" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Regular" FontSize="6" />
-        </Viewbox>
-        <Viewbox Grid.Column="3" Grid.Row="2" Margin="2">
-            <TextBox Name="name_tb" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" VerticalAlignment="Center" FontFamily="Montserrat" FontSize="15" Width="340" />
-        </Viewbox>
-        <Viewbox Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <Label HorizontalContentAlignment="Left" Content="Description" FontFamily="Montserrat" HorizontalAlignment="Left" FontWeight="Regular" FontSize="6" Width="43" Height="35" />
-        </Viewbox>
-        <Viewbox Grid.Column="3" Grid.Row="3" Margin="2">
-            <TextBox Name="description_tb" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" VerticalAlignment="Center" FontFamily="Montserrat" FontSize="15" Width="293" Height="100" />
-        </Viewbox>
-        <Viewbox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left">
-            <Label Content="Address" FontFamily="Montserrat" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Regular" FontSize="6" />
-        </Viewbox>
-        <Viewbox Grid.Column="3" Grid.Row="4" Margin="2">
-            <TextBox Name="address_tb" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" VerticalAlignment="Center" FontFamily="Montserrat" FontSize="15" Width="340" />
-        </Viewbox>
-        <Viewbox Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left">
-            <Label Content="Contact" FontFamily="Montserrat" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Regular" FontSize="6" />
-        </Viewbox>
-        <Viewbox Grid.Column="3" Grid.Row="5" Margin="2">
-            <TextBox Name="contact_tb" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" VerticalAlignment="Center" FontFamily="Montserrat" FontSize="15" Width="340" />
-        </Viewbox>
-        <Viewbox Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left">
-            <Label Content="Image" FontFamily="Montserrat" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Regular" FontSize="6" />
-        </Viewbox>
-        <Viewbox Grid.Column="3" Grid.Row="6" HorizontalAlignment="Left" Margin="2">
-            <Button Name="image_btn" Style="{DynamicResource MaterialDesignRaisedButton}"  VerticalAlignment="Center" FontFamily="Montserrat" Background="#FFFF6329" Foreground="White" Width="90" Click="onPhotoClick">Upload</Button>
-        </Viewbox>
-        <Viewbox Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left">
-            <Label Content="Latitude" FontFamily="Montserrat" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Regular" FontSize="6" />
-        </Viewbox>
-        <Viewbox Grid.Column="3" Grid.Row="7" Margin="2">
-            <TextBox Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" FontFamily="Montserrat" FontSize="15"  Width="340" />
-        </Viewbox>
-        <Viewbox Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left">
-            <Label Content="Longitude" FontFamily="Montserrat" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Regular" FontSize="6" />
-        </Viewbox>
-        <Viewbox Grid.Column="3" Grid.Row="8" Margin="2">
-            <TextBox Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" FontFamily="Montserrat" FontSize="15"  Width="340" />
-        </Viewbox>
-        <Viewbox Grid.Column="3" Grid.Row="9" Margin="2,0,0,0">
-            <Button Name="create_btn" Content="Kirim" Style="{DynamicResource MaterialDesignRaisedButton}"  VerticalAlignment="Center" FontFamily="Montserrat" Background="#FFFF6329" Foreground="White" Width="300">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleY="1"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Button.RenderTransform>
-            </Button>
-        </Viewbox>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+
+        <Label  Grid.Row="0" Grid.Column="0" Content="Nama Lokasi " Margin="1,4,471.2,4" FontFamily="Montserrat" Height="28"/>
+        <TextBox Name="name_tb" Grid.Row="0" Grid.Column="0" Height="28" TextWrapping="Wrap"  Margin="164,4,10.4,4"/>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Deskripsi" Margin="1,1,471.2,43.8" FontFamily="Montserrat" Height="72"/>
+        <TextBox Name="description_tb" Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" Margin="164,9,10.4,51" Height="72"/>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Category Id" Margin="1,92,471.2,9.6" FontFamily="Montserrat" Height="28"/>
+        <TextBox Name="category_tb" Grid.Row="1" Grid.Column="0" TextWrapping="Wrap"  Margin="164,93,10.4,11" Height="28"/>
+        
+        <Label Grid.Row="2" Grid.Column="0" Content="Alamat" Margin="1,0,471.2,8" FontFamily="Montserrat" Height="28"/>
+        <TextBox Name="address_tb" Grid.Row="2" Grid.Column="0" TextWrapping="Wrap"  Margin="164,2,10.4,10.8" Height="28"/>
+
+        <Label  Grid.Row="3" Grid.Column="0" Content="Upload Photo" Margin="1,0.2,471.2,132.6" FontFamily="Montserrat" Height="28"/>
+         
+        <Button Name="image_btn" Grid.Row="3" Grid.Column="0" Content="Choose Photo" Margin="164,0,325,132.667" Height="28" Click="onPhotoClick"/>
+        <Image Name="imageView" Grid.Row="3" Grid.Column="0"  Margin="342,0,147,132.667" Height="28" ></Image>
+
+        <TextBox Name="latitude_tb" HorizontalAlignment="Left" Height="28" Margin="164,43.2,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="131"/>
+        <Label Content="Latitude" HorizontalAlignment="Left" Margin="1,43.2,0,0" Grid.Row="3" VerticalAlignment="Top" Height="28"/>
+
+        <TextBox Name="longitude_tb" HorizontalAlignment="Left" Height="28" Margin="500,43.2,0,0" Grid.Row="3" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <Label Content="Longitude" HorizontalAlignment="Left" Margin="389,43.2,0,0" Grid.Row="3" VerticalAlignment="Top"/>
+
+        <Label  Grid.Row="3" Grid.Column="0" Content="Contact" Margin="1,104,471,28.667" FontFamily="Montserrat" Height="28"/>
+        <TextBox Name="contact_tb" Grid.Row="3" Grid.Column="0" TextWrapping="Wrap" Margin="164,104,10,28.667" Height="28"/>
+
+        <Button Name="create_btn" Grid.Row="4" Content="Kirim" Margin="134,26.667,40,47.667" Background="#FFFF6329" BorderBrush="#FFFF6329" FontFamily="Montserrat" Foreground="#FFFAF8F8" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+
+
     </Grid>
 </Page:MyPage>

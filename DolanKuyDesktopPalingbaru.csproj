@@ -14,8 +14,6 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -40,36 +38,14 @@
     <Reference Include="CsvHelper">
       <HintPath>.\CsvHelper.dll</HintPath>
     </Reference>
-    <Reference Include="Dragablz, Version=0.0.3.223, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Dragablz.0.0.3.223\lib\net45\Dragablz.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.AvalonEdit, Version=6.0.1.278, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL">
-      <HintPath>packages\AvalonEdit.6.0.1\lib\net45\ICSharpCode.AvalonEdit.dll</HintPath>
-    </Reference>
     <Reference Include="LiveCharts">
       <HintPath>.\LiveCharts.dll</HintPath>
     </Reference>
     <Reference Include="LiveCharts.Wpf">
       <HintPath>.\LiveCharts.Wpf.dll</HintPath>
     </Reference>
-    <Reference Include="MaterialDesignColors, Version=1.2.7.1979, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
-      <HintPath>packages\MaterialDesignColors.1.2.7\lib\net45\MaterialDesignColors.dll</HintPath>
-    </Reference>
-    <Reference Include="MaterialDesignThemes.Wpf, Version=3.2.0.1979, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
-      <HintPath>packages\MaterialDesignThemes.3.2.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Build" />
-    <Reference Include="Microsoft.Build.Framework" />
-    <Reference Include="Microsoft.Build.Tasks.v4.0" />
-    <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\velacrow\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="ShowMeTheXAML, Version=2.0.0.62, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\ShowMeTheXAML.2.0.0\lib\net472\ShowMeTheXAML.dll</HintPath>
-    </Reference>
-    <Reference Include="ShowMeTheXAML.AvalonEdit, Version=2.0.0.62, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\ShowMeTheXAML.AvalonEdit.2.0.0\lib\net472\ShowMeTheXAML.AvalonEdit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -77,7 +53,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Downloads\Desktop\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -99,10 +74,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="About.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Akomodasi\Akomodasi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -112,14 +83,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dashboard\Dashboard.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EditKategori\EditKategoriPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EditLokasi\EditPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -135,9 +98,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="About.xaml.cs">
-      <DependentUpon>About.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Akomodasi\Akomodasi.xaml.cs">
       <DependentUpon>Akomodasi.xaml</DependentUpon>
     </Compile>
@@ -153,13 +113,6 @@
     </Compile>
     <Compile Include="Dashboard\Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EditKategori\EditKategoriPage.xaml.cs">
-      <DependentUpon>EditKategoriPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EditLokasi\EditController.cs" />
-    <Compile Include="EditLokasi\EditPage.xaml.cs">
-      <DependentUpon>EditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Kategori\CategoryController.cs" />
     <Compile Include="Kategori\Kategori.xaml.cs">
@@ -195,7 +148,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -204,34 +156,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\alterra.png" />
-    <Resource Include="Assets\Belinda.jpg" />
-    <Resource Include="Assets\Eka.jpg" />
-    <Resource Include="Assets\Gilang.jpg" />
-    <Resource Include="Assets\Kresna.jpg" />
-    <Resource Include="Assets\Login.jpg" />
-    <Resource Include="Assets\logo_dolankuy.png" />
-    <Resource Include="Assets\maulidangames.png" />
-    <Resource Include="Assets\profilku1.png" />
-    <Resource Include="Assets\profilku2.png" />
-    <Resource Include="Assets\pti.png" />
-    <Resource Include="Assets\rasyidinst.png" />
-    <Resource Include="Assets\rasyidtech.png" />
-    <Resource Include="Assets\Shabrina.JPG" />
-    <Resource Include="Assets\sindika.png" />
-    <Resource Include="Assets\trustmedis.png" />
-    <Resource Include="Assets\virtuahive.png" />
-    <Resource Include="Assets\Zul.jpg" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets'))" />
-    <Error Condition="!Exists('packages\ShowMeTheXAML.MSBuild.2.0.0\build\net472\ShowMeTheXAML.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\ShowMeTheXAML.MSBuild.2.0.0\build\net472\ShowMeTheXAML.MSBuild.targets'))" />
-  </Target>
-  <Import Project="packages\ShowMeTheXAML.MSBuild.2.0.0\build\net472\ShowMeTheXAML.MSBuild.targets" Condition="Exists('packages\ShowMeTheXAML.MSBuild.2.0.0\build\net472\ShowMeTheXAML.MSBuild.targets')" />
 </Project>

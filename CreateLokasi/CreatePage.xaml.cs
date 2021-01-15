@@ -56,7 +56,7 @@ namespace DolanKuyDesktopPalingbaru.CreateLokasi
         private IMyTextBox contact_tb1;
         private IMyTextBox longitude_tb1;
         private IMyTextBox latitude_tb1;
-        private IMyButton image_tb1;
+        //private IMyTextBox image_tb1;
         private IMyTextBox category_tb1;
         private Image image;
         private MyList<MyFile> newImage;
@@ -80,7 +80,7 @@ namespace DolanKuyDesktopPalingbaru.CreateLokasi
             contact_tb1 = txtBoxBuilder.activate(this, "contact_tb");
             latitude_tb1 = txtBoxBuilder.activate(this, "latitude_tb");
             longitude_tb1 = txtBoxBuilder.activate(this, "longitude_tb");
-            image_tb1 = buttonBuilder.activate(this, "image_tb");
+            //image_tb1 = txtBoxBuilder.activate(this, "image_tb");
             category_tb1 = txtBoxBuilder.activate(this, "category_tb");
             //createStatusTxtBlock = txtBlockBuilder.activate(this, "registerStatus");
         }
@@ -126,7 +126,7 @@ namespace DolanKuyDesktopPalingbaru.CreateLokasi
 
                     Uri newImageUri = new Uri(newImage[0].fullPath);
 
-                    //image.Source = new BitmapImage(newImageUri);
+                    image.Source = new BitmapImage(newImageUri);
                 }
                 else
                 {

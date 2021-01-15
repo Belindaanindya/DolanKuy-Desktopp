@@ -6,39 +6,55 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DolanKuyDesktopPalingbaru.Akomodasi"
-      xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
-              
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-      Background="#F2F2F2"
-      FontFamily="{materialDesign:MaterialDesignFont}"
-      
       mc:Ignorable="d"
-      Title="List Akomodasi" Width="837.5" Height="490.5">
+      Title="Akomodasi" Width="642.537" Height="431.22">
 
-    <Grid Background="White" Width="800" Height="450">
-        <DataGrid x:Name="serviceList" CanUserAddRows="False" AutoGenerateColumns="False" HeadersVisibility="All" Background="White" BorderBrush="#1FFFFFFF" IsReadOnly="True" FontFamily="Montserrat" FontWeight="Regular" Foreground="#FF576271" FontSize="15">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding id}" Header="ID"/>
-                <DataGridTextColumn Binding="{Binding category_id}" Header="Category ID"/>
-                <DataGridTextColumn Binding="{Binding name}" Header="Name" ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}" />
-                <DataGridTextColumn Binding="{Binding address}" Header="Address" ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}" />
-                <DataGridTextColumn Binding="{Binding description}" Header="Description" ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}" />
-                <DataGridTextColumn Binding="{Binding contact}" Header="Contact" ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}" />
-                <DataGridTextColumn Binding="{Binding latitude}" Header="Latitude" ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}" />
-                <DataGridTextColumn Binding="{Binding longitude}" Header="Longitude" ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}" />
-                <DataGridTextColumn Binding="{Binding image}" Header="Image" ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}" />
-                <DataGridTemplateColumn Header="Action">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Button x:Name="deleteBtn" Content="{materialDesign:PackIcon Delete}" Margin="2,0" BorderBrush="{x:Null}" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="34" Height="34" Background="Red" Foreground="White" />
-                                <Button x:Name="editBtn" Content="{materialDesign:PackIcon Pencil}" BorderBrush="{x:Null}" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="34" Height="34" Background="#FF00882D" Foreground="White" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+    <Grid Background="#FFE8E8E8">
+
+
+        <Grid Margin="0,0,9.667,382.333">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button  Grid.Row="0" Grid.Column="0" Content="Log Out" Margin="557,0,-35.4,-0.4" Height="42" BorderBrush="{x:Null}" FontFamily="Montserrat" Background="#FFFD4715" HorizontalAlignment="Left" Width="84" Foreground="White"/>
+            <TextBox  Grid.Row="0" Grid.Column="0" Height="23" TextWrapping="Wrap" Text=" Search For Anything" Margin="2,9,0,10" HorizontalAlignment="Left" Width="536"/>
+
+        </Grid>
+
+        <Grid Margin="0,54,-0.333,4.333">
+            <TabControl Height="380" Margin="0,-10,1,3">
+                
+                <TabItem Header="Tabel List Akomodasi">
+                    <Grid Background="#FFFFFF">
+                        <ListView x:Name="serviceList" HorizontalAlignment="Stretch" Margin="0,0,-0.4,0" VerticalAlignment="Stretch">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn DisplayMemberBinding="{Binding id}" Header="ID" Width="40"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding name}" Header="Nama Lokasi Akomodasi" Width="120"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding address}" Header="Alamat" Width="60"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding description}" Header="Deskripsi" Width="80"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding contact}" Header="Contact" Width="60"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding latitude}" Header="Latitude" Width="60"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding longitude}" Header="Longitude" Width="60"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding image}" Header="Photo" Width="80"/>
+                                    <GridViewColumn Header="Action" Width="60">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
     </Grid>
 </Page:MyPage>

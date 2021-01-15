@@ -19,7 +19,7 @@ namespace DolanKuyDesktopPalingbaru.Kategori
 
         public async void getCategory()
         {
-            var client = new ApiClient("http://api.dolankuy.me/");
+            var client = new ApiClient("http://127.0.0.1:8000/");
             var request = new ApiRequestBuilder();
 
             var req = request
@@ -40,7 +40,7 @@ namespace DolanKuyDesktopPalingbaru.Kategori
 
         public async void postCategory(string _name, string _token)
         {
-            var client = new ApiClient("http://api.dolankuy.me/");
+            var client = new ApiClient("http://127.0.0.1:8000/");
             var request = new ApiRequestBuilder();
             this.token = _token;
             //string token = "";

@@ -54,7 +54,7 @@ namespace DolanKuyDesktopPalingbaru.CreateLokasi
                 .buildMultipartRequest(multiPartContent1)
                 .setRequestMethod(HttpMethod.Post)
                 .setEndpoint("locations/update/"+ response.getJObject()["id"].ToString());
-            client.setAuthorizationToken(_token);
+            //client.setAuthorizationToken(_token);
             client.setOnSuccessRequest(setViewRegisterStatus);
             var response2 = await client.sendRequest(req2.getApiRequestBundle());
 
