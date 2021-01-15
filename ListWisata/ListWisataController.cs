@@ -18,7 +18,7 @@ namespace DolanKuyDesktopPalingbaru.ListWisata
 
         public async void getLocation()
         {
-            var client = new ApiClient("http://127.0.0.1:8000/");
+            var client = new ApiClient("http://api.dolankuy.me/");
             var request = new ApiRequestBuilder();
 
             var req = request

@@ -56,6 +56,12 @@
                     </ListViewItem>
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ClipboardList" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Opacity=".56" />
+                            <TextBlock Text="List Akomodasi" FontSize="20" VerticalAlignment="Center" Margin="20 0" FontFamily="Montserrat"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ViewGridPlus" Width="30" Height="30" VerticalAlignment="Center" Margin="5" Opacity=".56" />
                             <TextBlock Text="Tambah Lokasi" FontSize="20" VerticalAlignment="Center" Margin="20 0" FontFamily="Montserrat"/>
                         </StackPanel>

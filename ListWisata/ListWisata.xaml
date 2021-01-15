@@ -3,12 +3,14 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DolanKuyDesktopPalingbaru.ListWisata"
       xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+              
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       TextElement.Foreground="{DynamicResource MaterialDesignBody}"
       Background="#F2F2F2"
       FontFamily="{materialDesign:MaterialDesignFont}"
-      xmlns:local="clr-namespace:DolanKuyDesktopPalingbaru.ListWisata"
+      
       mc:Ignorable="d"
       Title="ListWisata" Width="837.5" Height="490.5">
 
