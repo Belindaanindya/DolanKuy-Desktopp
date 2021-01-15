@@ -26,39 +26,47 @@ namespace DolanKuyDesktopPalingbaru.Dashboard
         private MyPage akomodasiPage;
         private MyPage kategoriPage;
         private MyPage createPage;
+        private MyPage aboutPage;
         private String token;
 
         public Dashboard(string token)
         {
             this.token = token;
-            //listWisataPage = new ListWisata.ListWisata();
-            //akomodasiPage = new Akomodasi.Akomodasi();
-            //kategoriPage = new Kategori.Kategori();
+            listWisataPage = new ListWisata.ListWisata(this.token);
+            createPage = new CreateLokasi.CreatePage(this.token);
+            kategoriPage = new Kategori.Kategori(this.token);
+            aboutPage = new About();
             InitializeComponent();
         }
 
-        private void wisata_click(object sender, RoutedEventArgs e)
+        private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            listWisataPage = new ListWisata.ListWisata(this.token);
-            mainFrame.Navigate(listWisataPage);
+            int index = ListViewMenu.SelectedIndex;
+            MoveCursorMenu(index);
+
+            switch (index)
+            {
+                case 0:
+                    mainFrame.Navigate(listWisataPage);
+                    break;
+                case 1:
+                    mainFrame.Navigate(createPage);
+                    break;
+                case 2:
+                    mainFrame.Navigate(kategoriPage);
+                    break;
+                case 3:
+                    mainFrame.Navigate(aboutPage);
+                    break;
+                default:
+                    break;
+            }
         }
 
-        private void akomodasi_click(object sender, RoutedEventArgs e)
+        private void MoveCursorMenu(int index)
         {
-            akomodasiPage = new Akomodasi.Akomodasi(this.token);
-            mainFrame.Navigate(akomodasiPage);
-        }
-
-        private void kategori_click(object sender, RoutedEventArgs e)
-        {
-            kategoriPage = new Kategori.Kategori(this.token);
-            mainFrame.Navigate(kategoriPage);
-        }
-
-        private void create_lokasi_click(object sender, RoutedEventArgs e)
-        {
-            createPage = new CreateLokasi.CreatePage(this.token);
-            mainFrame.Navigate(createPage);
+            TransitioningContentSlide.OnApplyTemplate();
+            GridCursor.Margin = new Thickness(0, (60 * index), 0, 0);
         }
     }
 }
