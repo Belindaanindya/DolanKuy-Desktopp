@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DolanKuyDesktopPalingbaru.EditLokasi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,6 +43,7 @@ namespace DolanKuyDesktopPalingbaru.Kategori
         private BuilderButton buttonBuilder;
         private BuilderTextBox txtBoxBuilder;
         private BuilderTextBlock txtBlockBuilder;
+        
 
         private void initUIBuilders()
         {
@@ -54,8 +56,9 @@ namespace DolanKuyDesktopPalingbaru.Kategori
         private IMyButton buttonGet;
         private IMyTextBox categoryTxtBox;
         private IMyTextBlock categoryStatusTxtBlock;
+        private MyPage editPage;
 
-      
+
 
         private void initUIElements()
         {
@@ -79,6 +82,38 @@ namespace DolanKuyDesktopPalingbaru.Kategori
 
         }
 
+        private void editBtn_Click(object sender, RoutedEventArgs e)
+        {
+           
+           // editPage = new EditLokasi.EditPage();
+            //this.NavigationService.Navigate(editPage);
+            Button button = sender as Button;
+            ModelCategory dataObject = button.DataContext as ModelCategory;
+            this.NavigationService.Navigate(new EditPage(dataObject.id));
+
+        }
+
+
+        private void deleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < listServices.Count; i++)
+            {
+                //listServices.ElementAt(i).id = actualId.ElementAt(i);
+            }
+
+            Button button = sender as Button;
+            ModelCategory dataObject = button.DataContext as ModelCategory;
+            Console.WriteLine(dataObject.id);
+            MessageBoxResult result = MessageBox.Show("Are you sure want to perform this action?", "Delete Service", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    getController().callMethod("deleteService", dataObject.id);
+
+                    break;
+            }
+        }
+
         public void getData()
         {
             getController().callMethod("getCategory");
@@ -100,5 +135,7 @@ namespace DolanKuyDesktopPalingbaru.Kategori
                 serviceList.ItemsSource = categoryList;
             }));
         }
+
+        
     }
 }

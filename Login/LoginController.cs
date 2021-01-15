@@ -19,7 +19,7 @@ namespace DolanKuyDesktopPalingbaru.Login
 
         public async void login(string _email, string _password)
         {
-            var client = new ApiClient("http://127.0.0.1:8000/api/");
+            var client = new ApiClient("http://api.dolankuy.me/api/");
             var request = new ApiRequestBuilder();
 
             var req = request
