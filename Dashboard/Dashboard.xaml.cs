@@ -34,6 +34,7 @@ namespace DolanKuyDesktopPalingbaru.Dashboard
             this.token = token;
             listWisataPage = new ListWisata.ListWisata(this.token);
             createPage = new CreateLokasi.CreatePage(this.token);
+            akomodasiPage = new Akomodasi.Akomodasi(this.token);
             kategoriPage = new Kategori.Kategori(this.token);
             aboutPage = new About();
             InitializeComponent();
@@ -50,12 +51,15 @@ namespace DolanKuyDesktopPalingbaru.Dashboard
                     mainFrame.Navigate(listWisataPage);
                     break;
                 case 1:
-                    mainFrame.Navigate(createPage);
+                    mainFrame.Navigate(akomodasiPage);
                     break;
                 case 2:
-                    mainFrame.Navigate(kategoriPage);
+                    mainFrame.Navigate(createPage);
                     break;
                 case 3:
+                    mainFrame.Navigate(kategoriPage);
+                    break;
+                case 4:
                     mainFrame.Navigate(aboutPage);
                     break;
                 default:
