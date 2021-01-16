@@ -23,9 +23,8 @@ namespace DolanKuyDesktopPalingbaru.Akomodasi
     public partial class Akomodasi : MyPage
     {
         private BuilderButton buttonBuilder;
-        private IMyButton buttonGet;
         private List<ModelListAkomodasi> listServices;
-        String token;
+        private String token;
 
         public Akomodasi(string token)
         {
@@ -46,13 +45,43 @@ namespace DolanKuyDesktopPalingbaru.Akomodasi
             getController().callMethod("getLocation");
         }
 
-        public void setLocation(List<ModelListAkomodasi> locationList)
+        public void setLocation(List<ModelListAkomodasi> acomodationList)
         {
-            this.listServices = locationList;
+            this.listServices = acomodationList;
 
             this.Dispatcher.Invoke((Action)(() => {
-                serviceList.ItemsSource = locationList;
+                serviceList.ItemsSource = acomodationList;
             }));
+        }
+
+        public void setDelete(String response)
+        {
+
+            this.Dispatcher.Invoke((Action)(() => {
+
+                this.NavigationService.Navigate(new Akomodasi(this.token));
+            }));
+        }
+
+        private void deleteBtnAkomodasi_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            ModelListAkomodasi dataObject = button.DataContext as ModelListAkomodasi;
+            MessageBoxResult result = MessageBox.Show("Are you sure want to perform this action?", "Delete Service", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    getController().callMethod("deleteAkomodasi", dataObject.id.ToString(), this.token);
+
+                    break;
+            }
+        }
+
+        private void editBtnAkomodasi_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            ModelListAkomodasi dataObject = button.DataContext as ModelListAkomodasi;
+            this.NavigationService.Navigate(new EditLokasi.EditPage(this.token, dataObject));
         }
     }
 }

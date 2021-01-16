@@ -83,7 +83,7 @@
         </Viewbox>
         <Viewbox Grid.Column="4" Grid.Row="0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <Button Content="LogOut" FontFamily="Montserrat" FontWeight="Regular" FontSize="12" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF979797" Padding="5"/>
+                <Button Name="logout_btn" Content="LogOut" FontFamily="Montserrat" FontWeight="Regular" FontSize="12" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF979797" Padding="5" Click="logout_btn_Click"/>
             </StackPanel>
         </Viewbox>
         <Border Background="#FFF2F2F2" Grid.Column="1" Grid.Row="1" Grid.RowSpan="7" Grid.ColumnSpan="5">

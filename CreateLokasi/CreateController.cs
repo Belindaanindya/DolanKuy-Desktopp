@@ -11,7 +11,7 @@ namespace DolanKuyDesktopPalingbaru.CreateLokasi
 {
     public class CreateController : MyController
     {
-        String token;
+        private String token;
 
         public CreateController(IMyView _myView) : base(_myView) { }
 
@@ -32,11 +32,11 @@ namespace DolanKuyDesktopPalingbaru.CreateLokasi
             MyList<MyFile> file = new MyList<MyFile>() {newImage};
             this.token = _token;
 
-            MultiPartContent multiPartContent1 = new MultiPartContent(file, fileKey);
-            var client = new ApiClient("http://127.0.0.1:8000/api/");
+
+            
+            var client = new ApiClient("http://api.dolankuy.me/api/");
 
             var req = new ApiRequestBuilder()
-                //.buildMultipartRequest(multiPartContent1)
                 .buildHttpRequest()
                 .addParameters("category_id", _id)
                 .addParameters("name", _name)
@@ -48,15 +48,26 @@ namespace DolanKuyDesktopPalingbaru.CreateLokasi
                 .setRequestMethod(HttpMethod.Post)
                 .setEndpoint("locations/create");
             client.setAuthorizationToken(_token);
+            if (newImage == null)
+            {
+                client.setOnSuccessRequest(setViewRegisterStatus);
+            }
             var response = await client.sendRequest(req.getApiRequestBundle());
 
-            var req2 = new ApiRequestBuilder()
-                .buildMultipartRequest(multiPartContent1)
-                .setRequestMethod(HttpMethod.Post)
-                .setEndpoint("locations/update/"+ response.getJObject()["id"].ToString());
-            client.setAuthorizationToken(_token);
-            client.setOnSuccessRequest(setViewRegisterStatus);
-            var response2 = await client.sendRequest(req2.getApiRequestBundle());
+
+            if (newImage !=null)
+            {
+                MultiPartContent multiPartContent1 = new MultiPartContent(file, fileKey);
+                var req2 = new ApiRequestBuilder()
+               .buildMultipartRequest(multiPartContent1)
+               .setRequestMethod(HttpMethod.Post)
+               .setEndpoint("locations/update/" + response.getJObject()["id"].ToString());
+                client.setAuthorizationToken(_token);
+                client.setOnSuccessRequest(setViewRegisterStatus);
+                var response2 = await client.sendRequest(req2.getApiRequestBundle());
+            }
+
+           
 
         }
 

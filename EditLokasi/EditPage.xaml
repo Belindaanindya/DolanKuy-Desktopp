@@ -35,12 +35,11 @@
             <RowDefinition Height="35*"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
+
         <Viewbox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left">
-            <Label Name="category_tb" Content="Category ID" FontFamily="Montserrat" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Regular" FontSize="6" />
+            <Button Name="back_btn" Style="{DynamicResource MaterialDesignRaisedButton}"  VerticalAlignment="Center" FontFamily="Montserrat" Background="#FFFF6329" Foreground="White" Width="100" Height="25" Click="back_btn_Click">Back</Button>
         </Viewbox>
-        <Viewbox Grid.Column="3" Grid.Row="1" Margin="2">
-            <TextBox Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" VerticalAlignment="Center" FontFamily="Montserrat" FontSize="15" Width="340" />
-        </Viewbox>
+
         <Viewbox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left">
             <Label Content="Name" FontFamily="Montserrat" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Regular" FontSize="6" />
         </Viewbox>
@@ -69,22 +68,22 @@
             <Label Content="Image" FontFamily="Montserrat" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Regular" FontSize="6" />
         </Viewbox>
         <Viewbox Grid.Column="3" Grid.Row="6" HorizontalAlignment="Left" Margin="2">
-            <Button Name="image_btn" Style="{DynamicResource MaterialDesignRaisedButton}"  VerticalAlignment="Center" FontFamily="Montserrat" Background="#FFFF6329" Foreground="White" Width="90">Upload</Button>
+            <Button Name="image_btn" Style="{DynamicResource MaterialDesignRaisedButton}"  VerticalAlignment="Center" FontFamily="Montserrat" Background="#FFFF6329" Foreground="White" Width="90" Click="image_btn_Click">Upload</Button>
         </Viewbox>
         <Viewbox Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left">
             <Label Content="Latitude" FontFamily="Montserrat" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Regular" FontSize="6" />
         </Viewbox>
         <Viewbox Grid.Column="3" Grid.Row="7" Margin="2">
-            <TextBox Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" FontFamily="Montserrat" FontSize="15"  Width="340" />
+            <TextBox Name="latitude_tb" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" FontFamily="Montserrat" FontSize="15"  Width="340" />
         </Viewbox>
         <Viewbox Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left">
             <Label Content="Longitude" FontFamily="Montserrat" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Regular" FontSize="6" />
         </Viewbox>
         <Viewbox Grid.Column="3" Grid.Row="8" Margin="2">
-            <TextBox Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" FontFamily="Montserrat" FontSize="15"  Width="340" />
+            <TextBox Name="longitude_tb" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" FontFamily="Montserrat" FontSize="15"  Width="340" />
         </Viewbox>
         <Viewbox Grid.Column="3" Grid.Row="9" Margin="2,0,0,0">
-            <Button Name="create_btn" Content="Kirim" Style="{DynamicResource MaterialDesignRaisedButton}"  VerticalAlignment="Center" FontFamily="Montserrat" Background="#FFFF6329" Foreground="White" Width="300">
+            <Button Name="edit_btn" Content="Kirim" Style="{DynamicResource MaterialDesignRaisedButton}"  VerticalAlignment="Center" FontFamily="Montserrat" Background="#FFFF6329" Foreground="White" Width="300" Click="edit_btn_Click">
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleY="1"/>
@@ -95,5 +94,6 @@
                 </Button.RenderTransform>
             </Button>
         </Viewbox>
+        
     </Grid>
 </Page:MyPage>

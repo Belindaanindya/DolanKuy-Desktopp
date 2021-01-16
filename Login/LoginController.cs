@@ -30,8 +30,8 @@ namespace DolanKuyDesktopPalingbaru.Login
                 .setRequestMethod(HttpMethod.Post);
             client.setOnSuccessRequest(setViewLoginStatus);
             var response = await client.sendRequest(request.getApiRequestBundle());
-            Console.WriteLine(response.getJObject()["token"]);
-            client.setAuthorizationToken(response.getJObject()["token"].ToString());
+            //Console.WriteLine(response.getJObject()["token"]);
+            //client.setAuthorizationToken(response.getJObject()["token"].ToString());
         }
 
         private void setViewLoginStatus(HttpResponseBundle _response)
