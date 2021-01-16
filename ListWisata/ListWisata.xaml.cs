@@ -23,10 +23,9 @@ namespace DolanKuyDesktopPalingbaru.ListWisata
     public partial class ListWisata : MyPage
     {
         private BuilderButton buttonBuilder;
-        private IMyButton buttonGet;
         private List<ModelListWisata> listServices;
         private List<int> actualId = new List<int>();
-        String token;
+        private String token;
 
         public ListWisata(string token)
         {
@@ -36,6 +35,8 @@ namespace DolanKuyDesktopPalingbaru.ListWisata
             initUIBuilders();
             getData();
         }
+
+       
 
         private void initUIBuilders()
         {
@@ -50,18 +51,43 @@ namespace DolanKuyDesktopPalingbaru.ListWisata
         public void setLocation(List<ModelListWisata> locationList)
         {
             this.listServices = locationList;
-            /*actualId.Clear();
-            int id = 1;
-            foreach (ModelCategory category in categoryList)
-            {
-                actualId.Add(category.id);
-                category.id = id;
-                id++;
-            }*/
 
             this.Dispatcher.Invoke((Action)(() => {
                 serviceList.ItemsSource = locationList;
             }));
+        }
+
+        public void setDelete(String response)
+        {
+
+            this.Dispatcher.Invoke((Action)(() => {
+                
+                this.NavigationService.Navigate(new ListWisata(this.token));
+            }));
+        }
+
+        private void editBtnWisata_Click(object sender, RoutedEventArgs e)
+        {
+
+            Button button = sender as Button;
+            ModelListWisata dataObject = button.DataContext as ModelListWisata;
+            this.NavigationService.Navigate(new EditLokasi.EditPage(this.token, dataObject));
+
+        }
+
+        private void deleteBtnWisata_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            ModelListWisata dataObject = button.DataContext as ModelListWisata;
+            MessageBoxResult result = MessageBox.Show("Are you sure want to perform this action?", "Delete Service", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    getController().callMethod("deleteWisata", dataObject.id.ToString(), this.token);
+
+                    break;
+            }
+            
         }
     }
 }

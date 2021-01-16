@@ -3,12 +3,14 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DolanKuyDesktopPalingbaru.ListWisata"
       xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+              
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       TextElement.Foreground="{DynamicResource MaterialDesignBody}"
       Background="#F2F2F2"
       FontFamily="{materialDesign:MaterialDesignFont}"
-      xmlns:local="clr-namespace:DolanKuyDesktopPalingbaru.ListWisata"
+      
       mc:Ignorable="d"
       Title="ListWisata" Width="837.5" Height="490.5">
 
@@ -28,8 +30,8 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button x:Name="deleteBtn" Content="{materialDesign:PackIcon Delete}" Margin="2,0" BorderBrush="{x:Null}" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="34" Height="34" Background="Red" Foreground="White" />
-                                <Button x:Name="editBtn" Content="{materialDesign:PackIcon Pencil}" BorderBrush="{x:Null}" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="34" Height="34" Background="#FF00882D" Foreground="White" />
+                                <Button x:Name="deleteBtnWisata" Content="{materialDesign:PackIcon Delete}" Margin="2,0" BorderBrush="{x:Null}" Padding="0"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="34" Height="34" Background="Red" Foreground="White" Click="deleteBtnWisata_Click" />
+                                <Button x:Name="editBtnWisata"  Content="{materialDesign:PackIcon Pencil}" BorderBrush="{x:Null}" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="34" Height="34" Background="#FF00882D" Foreground="White" Click="editBtnWisata_Click" />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

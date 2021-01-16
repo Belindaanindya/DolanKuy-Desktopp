@@ -81,6 +81,7 @@ namespace DolanKuyDesktopPalingbaru
                 dashboard = new Dashboard.Dashboard(_status);
                 loginButton.setText(_status);
                 dashboard.Show();
+                this.Close();
             });
             
         }

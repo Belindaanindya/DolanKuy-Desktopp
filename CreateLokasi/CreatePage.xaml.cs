@@ -26,7 +26,23 @@ namespace DolanKuyDesktopPalingbaru.CreateLokasi
     /// </summary>
     public partial class CreatePage : MyPage
     {
-        String token;
+        private String token;
+
+
+        private IMyButton createButton;
+        private IMyTextBox name_tb1;
+        private IMyTextBox description_tb1;
+        private IMyTextBox address_tb1;
+        private IMyTextBox contact_tb1;
+        private IMyTextBox longitude_tb1;
+        private IMyTextBox latitude_tb1;
+        private IMyTextBox category_tb1;
+        private Image image;
+        private MyList<MyFile> newImage;
+        private BuilderButton buttonBuilder;
+        private BuilderTextBox txtBoxBuilder;
+        private BuilderTextBlock txtBlockBuilder;
+
         public CreatePage(string token)
         {
             this.token = token;
@@ -37,31 +53,12 @@ namespace DolanKuyDesktopPalingbaru.CreateLokasi
             initUIElements();
         }
 
-        private BuilderButton buttonBuilder;
-        private BuilderTextBox txtBoxBuilder;
-        private BuilderTextBlock txtBlockBuilder;
-        //private int id = 8;
-
         private void initUIBuilders()
         {
             buttonBuilder = new BuilderButton();
             txtBoxBuilder = new BuilderTextBox();
             txtBlockBuilder = new BuilderTextBlock();
         }
-
-        private IMyButton createButton;
-        private IMyTextBox name_tb1;
-        private IMyTextBox description_tb1;
-        private IMyTextBox address_tb1;
-        private IMyTextBox contact_tb1;
-        private IMyTextBox longitude_tb1;
-        private IMyTextBox latitude_tb1;
-        //private IMyTextBox image_tb1;
-        private IMyTextBox category_tb1;
-        private Image image;
-        private MyList<MyFile> newImage;
-
-        private IMyTextBlock createStatusTxtBlock;
 
 
 
@@ -80,9 +77,7 @@ namespace DolanKuyDesktopPalingbaru.CreateLokasi
             contact_tb1 = txtBoxBuilder.activate(this, "contact_tb");
             latitude_tb1 = txtBoxBuilder.activate(this, "latitude_tb");
             longitude_tb1 = txtBoxBuilder.activate(this, "longitude_tb");
-            //image_tb1 = txtBoxBuilder.activate(this, "image_tb");
             category_tb1 = txtBoxBuilder.activate(this, "category_tb");
-            //createStatusTxtBlock = txtBlockBuilder.activate(this, "registerStatus");
         }
 
         public void onCreateButtonClick()
@@ -126,7 +121,7 @@ namespace DolanKuyDesktopPalingbaru.CreateLokasi
 
                     Uri newImageUri = new Uri(newImage[0].fullPath);
 
-                    image.Source = new BitmapImage(newImageUri);
+                    //image.Source = new BitmapImage(newImageUri);
                 }
                 else
                 {
