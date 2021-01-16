@@ -32,8 +32,8 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button x:Name="deleteBtn" Content="{materialDesign:PackIcon Delete}" Margin="2,0" BorderBrush="{x:Null}" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="34" Height="34" Background="Red" Foreground="White" />
-                                <Button x:Name="editBtn" Content="{materialDesign:PackIcon Pencil}" BorderBrush="{x:Null}" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="34" Height="34" Background="#FF00882D" Foreground="White" />
+                                <Button x:Name="deleteBtnAkomodasi" Content="{materialDesign:PackIcon Delete}" Margin="2,0" BorderBrush="{x:Null}" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="34" Height="34" Background="Red" Foreground="White" Click="deleteBtnAkomodasi_Click" />
+                                <Button x:Name="editBtnAkomodasi" Content="{materialDesign:PackIcon Pencil}" BorderBrush="{x:Null}" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="34" Height="34" Background="#FF00882D" Foreground="White" Click="editBtnAkomodasi_Click"  />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

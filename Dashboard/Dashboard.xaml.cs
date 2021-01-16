@@ -32,12 +32,9 @@ namespace DolanKuyDesktopPalingbaru.Dashboard
         public Dashboard(string token)
         {
             this.token = token;
-            listWisataPage = new ListWisata.ListWisata(this.token);
-            createPage = new CreateLokasi.CreatePage(this.token);
-            akomodasiPage = new Akomodasi.Akomodasi(this.token);
-            kategoriPage = new Kategori.Kategori(this.token);
             aboutPage = new About();
             InitializeComponent();
+            setController(new DashboardController(this));
         }
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -48,15 +45,22 @@ namespace DolanKuyDesktopPalingbaru.Dashboard
             switch (index)
             {
                 case 0:
+                    listWisataPage = new ListWisata.ListWisata(this.token);
+                    
                     mainFrame.Navigate(listWisataPage);
                     break;
                 case 1:
+                    
+                    akomodasiPage = new Akomodasi.Akomodasi(this.token);
+                    
                     mainFrame.Navigate(akomodasiPage);
                     break;
                 case 2:
+                    createPage = new CreateLokasi.CreatePage(this.token);
                     mainFrame.Navigate(createPage);
                     break;
                 case 3:
+                    kategoriPage = new Kategori.Kategori(this.token);
                     mainFrame.Navigate(kategoriPage);
                     break;
                 case 4:
@@ -71,6 +75,18 @@ namespace DolanKuyDesktopPalingbaru.Dashboard
         {
             TransitioningContentSlide.OnApplyTemplate();
             GridCursor.Margin = new Thickness(0, (60 * index), 0, 0);
+        }
+
+        public void setLogoutStatus()
+        {
+            this.Dispatcher.Invoke(() => {
+                this.Close();
+            });
+        }
+
+        private void logout_btn_Click(object sender, RoutedEventArgs e)
+        {
+            getController().callMethod("logout", this.token);
         }
     }
 }

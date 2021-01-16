@@ -12,58 +12,78 @@ namespace DolanKuyDesktopPalingbaru.EditLokasi
 {
     public class EditController : MyController
     {
-        //private EditPage editPage;
+        private String token;
 
         public EditController(IMyView _myView) : base(_myView)
         {
             //this.editPage = editPage;
         }
 
-        //revisi backend
-        public async void getCategory()
+        public async void editLocation(
+            string _name,
+            string _description,
+            string _address,
+            string _contact,
+            String _latitude,
+            String _longitude,
+            String _id,
+            string _token,
+            MyFile newImage
+        )
         {
-            var client = new ApiClient("http://127.0.0.1:8000/");
-            var request = new ApiRequestBuilder();
+            MyList<string> fileKey = new MyList<string>() { "image" };
+            MyList<MyFile> file = new MyList<MyFile>() { newImage };
+            this.token = _token;
 
-            var req = request
+
+
+            var client = new ApiClient("http://api.dolankuy.me/api/");
+
+            var req = new ApiRequestBuilder()
                 .buildHttpRequest()
-                .setEndpoint("api/category")
-                .setRequestMethod(HttpMethod.Get);
-            client.setOnSuccessRequest(setItem);
-            var response = await client.sendRequest(request.getApiRequestBundle());
+                .addParameters("name", _name)
+                .addParameters("address", _address)
+                .addParameters("description", _description)
+                .addParameters("contact", _contact)
+                .addParameters("latitude", _latitude)
+                .addParameters("longitude", _longitude)
+                .setRequestMethod(HttpMethod.Post)
+                .setEndpoint("locations/update/" + _id);
+            client.setAuthorizationToken(_token);
+            if (newImage == null)
+            {
+                client.setOnSuccessRequest(setViewStatus);
+            }
+            var response = await client.sendRequest(req.getApiRequestBundle());
+
+
+            if (newImage != null)
+            {
+                MultiPartContent multiPartContent1 = new MultiPartContent(file, fileKey);
+                var req2 = new ApiRequestBuilder()
+               .buildMultipartRequest(multiPartContent1)
+               .setRequestMethod(HttpMethod.Post)
+               .setEndpoint("locations/update/" + _id);
+                client.setAuthorizationToken(_token);
+                client.setOnSuccessRequest(setViewStatus);
+                var response2 = await client.sendRequest(req2.getApiRequestBundle());
+            }
+
+
+
         }
 
-        //Update
-        public async void putCategory(String _categoryName, int _categoryId)
+        private void setViewStatus(HttpResponseBundle _response)
         {
-            var client = new ApiClient("http://127.0.0.1:8000/");
-            var request = new ApiRequestBuilder();
 
-            var req = request
-                .buildHttpRequest()
-                .addParameters("name", _categoryName)
-                .setEndpoint("api/category/update/" + _categoryId)
-                .setRequestMethod(HttpMethod.Put);
-            client.setOnSuccessRequest(setItem);
-            var response = await client.sendRequest(request.getApiRequestBundle());
-        }
 
-        private void setItem(HttpResponseBundle _response)
-        {
+
             if (_response.getHttpResponseMessage().Content != null)
             {
-
-                if (_response.getParsedObject<RootCategory>().category != null)
-                {
-
-                    getView().callMethod("setCategory", _response.getParsedObject<RootCategory>().category);
-
-                }
-                else
-                {
-                    getView().callMethod("setCategory", new List<ModelCategory>());
-                }
+                string status = _response.getHttpResponseMessage().ReasonPhrase;
+                getView().callMethod("setEditStatus", this.token);
             }
+
         }
     }
 }

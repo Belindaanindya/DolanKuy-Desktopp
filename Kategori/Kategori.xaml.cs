@@ -53,10 +53,8 @@ namespace DolanKuyDesktopPalingbaru.Kategori
         }
 
         private IMyButton categoryButton;
-        private IMyButton buttonGet;
         private IMyTextBox categoryTxtBox;
         private IMyTextBlock categoryStatusTxtBlock;
-        private MyPage editPage;
 
 
 
@@ -78,40 +76,18 @@ namespace DolanKuyDesktopPalingbaru.Kategori
         {
             this.Dispatcher.Invoke(() => {
                 categoryButton.setText(_status);
+                this.NavigationService.Navigate(new Kategori(_status));
             });
 
         }
 
-        private void editBtn_Click(object sender, RoutedEventArgs e)
+        public void setDelete(String response)
         {
-           
-           // editPage = new EditLokasi.EditPage();
-            //this.NavigationService.Navigate(editPage);
-            Button button = sender as Button;
-            ModelCategory dataObject = button.DataContext as ModelCategory;
-            this.NavigationService.Navigate(new EditPage(dataObject.id));
 
-        }
+            this.Dispatcher.Invoke((Action)(() => {
 
-
-        private void deleteBtn_Click(object sender, RoutedEventArgs e)
-        {
-            for (int i = 0; i < listServices.Count; i++)
-            {
-                //listServices.ElementAt(i).id = actualId.ElementAt(i);
-            }
-
-            Button button = sender as Button;
-            ModelCategory dataObject = button.DataContext as ModelCategory;
-            Console.WriteLine(dataObject.id);
-            MessageBoxResult result = MessageBox.Show("Are you sure want to perform this action?", "Delete Service", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            switch (result)
-            {
-                case MessageBoxResult.Yes:
-                    getController().callMethod("deleteService", dataObject.id);
-
-                    break;
-            }
+                this.NavigationService.Navigate(new Kategori(this.token));
+            }));
         }
 
         public void getData()
@@ -122,20 +98,32 @@ namespace DolanKuyDesktopPalingbaru.Kategori
         public void setCategory(List<ModelCategory> categoryList)
         {
             this.listServices = categoryList;
-            /*actualId.Clear();
-            int id = 1;
-            foreach (ModelCategory category in categoryList)
-            {
-                actualId.Add(category.id);
-                category.id = id;
-                id++;
-            }*/
 
             this.Dispatcher.Invoke((Action)(() => {
                 serviceList.ItemsSource = categoryList;
             }));
         }
 
-        
+        private void deleteBtnCategory_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            ModelCategory dataObject = button.DataContext as ModelCategory;
+            Console.WriteLine(dataObject.id);
+            MessageBoxResult result = MessageBox.Show("Are you sure want to perform this action?", "Delete Service", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    getController().callMethod("deleteCategory", dataObject.id.ToString(), this.token);
+
+                    break;
+            }
+        }
+
+        private void editBtnCategory_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            ModelCategory dataObject = button.DataContext as ModelCategory;
+            this.NavigationService.Navigate(new EditKategori.EditKategoriPage(this.token, dataObject));
+        }
     }
 }
